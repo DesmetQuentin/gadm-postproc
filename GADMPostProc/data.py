@@ -1,158 +1,265 @@
-#!/bin/usr/python
+#!/bin/usr/python3
 
 # GADMPostProc.data
+#
+# quentin.desmet@cnrs.fr
+# last update: 2023-05-22
 
 # Alpa-3 code to English short name mapping
-## Based on https://www.iso.org/obp/ui/#search/code/
-## Accessed on May, the 20th of 2023
+# Based on https://www.iso.org/obp/ui/#search/code/
+# Accessed on May, the 20th of 2023
 code2country = {
+        'ABW': 'Aruba',
+        'AFG': 'Afghanistan',
+        'AGO': 'Angola',
+        'AIA': 'Anguilla',
+        'ALA': 'Åland Islands',
+        'ALB': 'Albania',
+        'AND': 'Andorra',
+        'ARE': 'United Arab Emirates (the)',
+        'ARG': 'Argentina',
+        'ARM': 'Armenia',
+        'ASM': 'American Samoa',
+        'ATA': 'Antarctica',
+        'ATF': 'French Southern Territories (the)',
+        'ATG': 'Antigua and Barbuda',
         'AUS': 'Australia',
+        'AUT': 'Austria',
+        'AZE': 'Azerbaijan',
+        'BDI': 'Burundi',
+        'BEL': 'Belgium',
+        'BEN': 'Benin',
+        'BES': 'Bonaire, Sint Eustatius and Saba',
+        'BFA': 'Burkina Faso',
         'BGD': 'Bangladesh',
+        'BGR': 'Bulgaria',
+        'BHR': 'Bahrain',
+        'BHS': 'Bahamas (the)',
+        'BIH': 'Bosnia and Herzegovina',
+        'BLM': 'Saint Barthélemy',
+        'BLR': 'Belarus',
+        'BLZ': 'Belize',
+        'BMU': 'Bermuda',
+        'BOL': 'Bolivia (Plurinational State of)',
+        'BRA': 'Brazil',
+        'BRB': 'Barbados',
         'BRN': 'Brunei Darussalam',
         'BTN': 'Bhutan',
+        'BVT': 'Bouvet Island',
+        'BWA': 'Botswana',
+        'CAF': 'Central African Republic (the)',
+        'CAN': 'Canada',
+        'CCK': 'Cocos (Keeling) Islands (the)',
+        'CHE': 'Switzerland',
+        'CHL': 'Chile',
         'CHN': 'China',
+        'CIV': "Côte d'Ivoire",
+        'CMR': 'Cameroon',
+        'COD': 'Congo (the Democratic Republic of the)',
+        'COG': 'Congo (the)',
         'COK': 'Cook Islands (the)',
+        'COL': 'Colombia',
+        'COM': 'Comoros (the)',
+        'CPV': 'Cabo Verde',
+        'CRI': 'Costa Rica',
+        'CUB': 'Cuba',
+        'CUW': 'Curaçao',
         'CXR': 'Christmas Island',
+        'CYM': 'Cayman Islands (the)',
+        'CYP': 'Cyprus',
+        'CZE': 'Czechia',
+        'DEU': 'Germany',
+        'DJI': 'Djibouti',
+        'DMA': 'Dominica',
+        'DNK': 'Denmark',
+        'DOM': 'Dominican Republic (the)',
+        'DZA': 'Algeria',
+        'ECU': 'Ecuador',
+        'EGY': 'Egypt',
+        'ERI': 'Eritrea',
+        'ESH': 'Western Sahara',
+        'ESP': 'Spain',
+        'EST': 'Estonia',
+        'ETH': 'Ethiopia',
+        'FIN': 'Finland',
+        'FJI': 'Fiji',
+        'FLK': 'Falkland Islands (the) [Malvinas]',
+        'FRA': 'France',
+        'FRO': 'Faroe Islands (the)',
+        'FSM': 'Micronesia (Federated States of)',
+        'GAB': 'Gabon',
+        'GBR': 'United Kingdom of Great Britain and Northern Ireland (the)',
+        'GEO': 'Georgia',
+        'GGY': 'Guernsey',
+        'GHA': 'Ghana',
+        'GIB': 'Gibraltar',
+        'GIN': 'Guinea',
+        'GLP': 'Guadeloupe',
+        'GMB': 'Gambia (the)',
+        'GNB': 'Guinea-Bissau',
+        'GNQ': 'Equatorial Guinea',
+        'GRC': 'Greece',
+        'GRD': 'Grenada',
+        'GRL': 'Greenland',
+        'GTM': 'Guatemala',
+        'GUF': 'French Guiana',
+        'GUM': 'Guam',
+        'GUY': 'Guyana',
         'HKG': 'Hong Kong',
+        'HMD': 'Heard Island and McDonald Islands',
+        'HND': 'Honduras',
+        'HRV': 'Croatia',
+        'HTI': 'Haiti',
+        'HUN': 'Hungary',
         'IDN': 'Indonesia',
+        'IMN': 'Isle of Man',
         'IND': 'India',
+        'IOT': 'British Indian Ocean Territory (the)',
+        'IRL': 'Ireland',
+        'IRN': 'Iran (Islamic Republic of)',
+        'IRQ': 'Iraq',
+        'ISL': 'Iceland',
+        'ISR': 'Israel',
+        'ITA': 'Italy',
+        'JAM': 'Jamaica',
+        'JEY': 'Jersey',
+        'JOR': 'Jordan',
+        'JPN': 'Japan',
+        'KAZ': 'Kazakhstan',
+        'KEN': 'Kenya',
+        'KGZ': 'Kyrgyzstan',
         'KHM': 'Cambodia',
+        'KIR': 'Kiribati',
+        'KNA': 'Saint Kitts and Nevis',
+        'KOR': 'Korea (the Republic of)',
+        'KWT': 'Kuwait',
         'LAO': "Lao People's Democratic Republic (the)",
+        'LBN': 'Lebanon',
+        'LBR': 'Liberia',
+        'LBY': 'Libya',
+        'LCA': 'Saint Lucia',
+        'LIE': 'Liechtenstein',
         'LKA': 'Sri Lanka',
+        'LSO': 'Lesotho',
+        'LTU': 'Lithuania',
+        'LUX': 'Luxembourg',
+        'LVA': 'Latvia',
+        'MAC': 'Macao',
+        'MAF': 'Saint Martin (French part)',
+        'MAR': 'Morocco',
+        'MCO': 'Monaco',
+        'MDA': 'Moldova (the Republic of)',
+        'MDG': 'Madagascar',
+        'MDV': 'Maldives',
+        'MEX': 'Mexico',
+        'MHL': 'Marshall Islands (the)',
+        'MKD': 'North Macedonia',
+        'MLI': 'Mali',
+        'MLT': 'Malta',
         'MMR': 'Myanmar',
+        'MNE': 'Montenegro',
+        'MNG': 'Mongolia',
+        'MNP': 'Northern Mariana Islands (the)',
+        'MOZ': 'Mozambique',
+        'MRT': 'Mauritania',
+        'MSR': 'Montserrat',
+        'MTQ': 'Martinique',
+        'MUS': 'Mauritius',
+        'MWI': 'Malawi',
         'MYS': 'Malaysia',
+        'MYT': 'Mayotte',
+        'NAM': 'Namibia',
+        'NCL': 'New Caledonia',
+        'NER': 'Niger (the)',
+        'NFK': 'Norfolk Island',
+        'NGA': 'Nigeria',
+        'NIC': 'Nicaragua',
+        'NIU': 'Niue',
+        'NLD': 'Netherlands (Kingdom of the)',
+        'NOR': 'Norway',
         'NPL': 'Nepal',
+        'NRU': 'Nauru',
+        'NZL': 'New Zealand',
+        'OMN': 'Oman',
+        'PAK': 'Pakistan',
+        'PAN': 'Panama',
+        'PCN': 'Pitcairn',
+        'PER': 'Peru',
         'PHL': 'Philippines (the)',
         'PLW': 'Palau',
         'PNG': 'Papua New Guinea',
+        'POL': 'Poland',
+        'PRI': 'Puerto Rico',
+        'PRK': "Korea (the Democratic People's Republic of)",
+        'PRT': 'Portugal',
+        'PRY': 'Paraguay',
+        'PSE': 'Palestine, State of',
+        'PYF': 'French Polynesia',
+        'QAT': 'Qatar',
+        'REU': 'Réunion',
+        'ROU': 'Romania',
+        'RUS': 'Russian Federation (the)',
+        'RWA': 'Rwanda',
+        'SAU': 'Saudi Arabia',
+        'SDN': 'Sudan (the)',
+        'SEN': 'Senegal',
         'SGP': 'Singapore',
+        'SGS': 'South Georgia and the South Sandwich Islands',
+        'SHN': 'Saint Helena, Ascension and Tristan da Cunha',
+        'SJM': 'Svalbard and Jan Mayen',
         'SLB': 'Solomon Islands',
+        'SLE': 'Sierra Leone',
+        'SLV': 'El Salvador',
+        'SMR': 'San Marino',
+        'SOM': 'Somalia',
+        'SPM': 'Saint Pierre and Miquelon',
+        'SRB': 'Serbia',
+        'SSD': 'South Sudan',
+        'STP': 'Sao Tome and Principe',
+        'SUR': 'Suriname',
+        'SVK': 'Slovakia',
+        'SVN': 'Slovenia',
+        'SWE': 'Sweden',
+        'SWZ': 'Eswatini',
+        'SXM': 'Sint Maarten (Dutch part)',
+        'SYC': 'Seychelles',
+        'SYR': 'Syrian Arab Republic (the)',
+        'TCA': 'Turks and Caicos Islands (the)',
+        'TCD': 'Chad',
+        'TGO': 'Togo',
         'THA': 'Thailand',
+        'TJK': 'Tajikistan',
+        'TKL': 'Tokelau',
+        'TKM': 'Turkmenistan',
         'TLS': 'Timor-Leste',
+        'TON': 'Tonga',
+        'TTO': 'Trinidad and Tobago',
+        'TUN': 'Tunisia',
+        'TUR': 'Türkiye',
+        'TUV': 'Tuvalu',
         'TWN': 'Taiwan (Province of China)',
+        'TZA': 'Tanzania, the United Republic of',
+        'UGA': '4Uganda',
+        'UKR': 'Ukraine',
+        'UMI': 'United States Minor Outlying Islands (the)',
+        'URY': 'Uruguay',
+        'USA': 'United States of America (the)',
+        'UZB': 'Uzbekistan',
+        'VAT': 'Holy See (the)',
+        'VCT': 'Saint Vincent and the Grenadines',
+        'VEN': 'Venezuela (Bolivarian Republic of)',
+        'VGB': 'Virgin Islands (British)',
+        'VIR': 'Virgin Islands (U.S.)',
         'VNM': 'Viet Nam',
+        'VUT': 'Vanuatu',
+        'WLF': 'Wallis and Futuna',
+        'WSM': 'Samoa',
+        'YEM': 'Yemen',
+        'ZAF': 'South Africa',
+        'ZMB': 'Zambia',
+        'ZWE': 'Zimbabwe',
         }
-'''
-Aruba ABW
-Afghanistan AFG
-Angola AGO
-Anguilla AIA
-Åland Islands ALA
-Albania ALB
-Andorra AND
-United Arab Emirates (the) ARE
-Argentina ARG
-Armenia ARM
-American Samoa ASM
-Antarctica ATA
-French Southern Territories (the) ATF
-Antigua and Barbuda ATG
-Australia AUS
-Austria AUT
-Azerbaijan AZE
-Burundi BDI
-Belgium BEL
-Benin BEN
-Bonaire, Sint Eustatius and Saba BES
-Burkina Faso BFA
-Bangladesh BGD
-Bulgaria BGR
-Bahrain BHR
-Bahamas (the) BHS
-Bosnia and Herzegovina BIH
-Saint Barthélemy BLM
-Belarus BLR
-Belize BLZ
-Bermuda BMU
-Bolivia (Plurinational State of) BOL
-Brazil BRA
-Barbados BRB
-Brunei Darussalam BRN
-Bhutan BTN
-Bouvet Island BVT
-Botswana BWA
-Central African Republic (the) CAF
-Canada CAN
-Cocos (Keeling) Islands (the) CCK
-Switzerland CHE
-Chile CHL
-China CHN
-Côte d'Ivoire CIV
-Cameroon CMR
-Congo (the Democratic Republic of the) COD
-Congo (the) COG
-Cook Islands (the) COK
-Colombia COL
-Comoros (the) COM
-Cabo Verde CPV
-Costa Rica CRI
-Cuba CUB
-Curaçao CUW
-Christmas Island CXR
-Cayman Islands (the) CYM
-Cyprus CYP
-Czechia CZE
-Germany DEU
-Djibouti DJI
-Dominica DMA
-Denmark DNK
-Dominican Republic (the) DOM
-Algeria DZA
-Ecuador ECU
-Egypt EGY
-Eritrea ERI
-Western Sahara ESH
-Spain ESP
-Estonia EST
-Ethiopia ETH
-Finland FIN
-Fiji FJI
-Falkland Islands (the) [Malvinas] FLK
-France FRA
-Faroe Islands (the) FRO
-Micronesia (Federated States of) FSM
-Gabon GAB
-United Kingdom of Great Britain and Northern Ireland (the) GBR
-Georgia GEO
-Guernsey GGY
-Ghana GHA
-Gibraltar GIB
-Guinea GIN
-Guadeloupe GLP
-Gambia (the) GMB
-Guinea-Bissau GNB
-Equatorial Guinea GNQ
-Greece GRC
-Grenada GRD
-Greenland GRL
-Guatemala GTM
-French Guiana GUF
-Guam GUM
-Guyana GUY
-Hong Kong HKG
-Heard Island and McDonald Islands HMD
-Honduras HND
-Croatia HRV
-Haiti HTI
-Hungary HUN
-Indonesia IDN
-Isle of Man IMN
-India IND
-British Indian Ocean Territory (the) IOT
-Ireland IRL
-Iran (Islamic Republic of) IRN
-Iraq IRQ
-Iceland ISL
-Israel ISR
-Italy ITA
-Jamaica JAM
-Jersey JEY
-Jordan JOR
-Japan JPN
-Kazakhstan KAZ
-KenyaKenya (le)KEKEN404KyrgyzstanKirghizistan (le)KGKGZ417CambodiaCambodge (le)KHKHM116KiribatiKiribatiKIKIR296Saint Kitts and NevisSaint-Kitts-et-NevisKNKNA659Korea (the Republic of)Corée (la République de)KRKOR410KuwaitKoweït (le)KWKWT414Lao People's Democratic Republic (the)Lao (la République démocratique populaire)LALAO418LebanonLiban (le)LBLBN422LiberiaLibéria (le)LRLBR430LibyaLibye (la)LYLBY434Saint LuciaSainte-LucieLCLCA662LiechtensteinLiechtenstein (le)LILIE438Sri LankaSri LankaLKLKA144LesothoLesotho (le)LSLSO426LithuaniaLituanie (la)LTLTU440LuxembourgLuxembourg (le)LULUX442LatviaLettonie (la)LVLVA428MacaoMacaoMOMAC446Saint Martin (French part)Saint-Martin (partie française)MFMAF663MoroccoMaroc (le)MAMAR504MonacoMonacoMCMCO492Moldova (the Republic of)Moldova (la République de)MDMDA498MadagascarMadagascarMGMDG450MaldivesMaldives (les)MVMDV462MexicoMexique (le)MXMEX484Marshall Islands (the)Marshall (les Îles)MHMHL584North MacedoniaMacédoine du Nord (la)MKMKD807MaliMali (le)MLMLI466MaltaMalteMTMLT470MyanmarMyanmar (le)MMMMR104MontenegroMonténégro (le)MEMNE499MongoliaMongolie (la)MNMNG496Northern Mariana Islands (the)Mariannes du Nord (les Îles)MPMNP580MozambiqueMozambique (le)MZMOZ508MauritaniaMauritanie (la)MRMRT478MontserratMontserratMSMSR500MartiniqueMartinique (la)MQMTQ474MauritiusMauriceMUMUS480MalawiMalawi (le)MWMWI454MalaysiaMalaisie (la)MYMYS458MayotteMayotteYTMYT175NamibiaNamibie (la)NANAM516New CaledoniaNouvelle-Calédonie (la)NCNCL540Niger (the)Niger (le)NENER562Norfolk IslandNorfolk (l'Île)NFNFK574NigeriaNigéria (le)NGNGA566NicaraguaNicaragua (le)NINIC558NiueNiueNUNIU570Netherlands (Kingdom of the)Pays-Bas (Royaume des)NLNLD528NorwayNorvège (la)NONOR578NepalNépal (le)NPNPL524NauruNauruNRNRU520New ZealandNouvelle-Zélande (la)NZNZL554OmanOmanOMOMN512PakistanPakistan (le)PKPAK586PanamaPanama (le)PAPAN591PitcairnPitcairnPNPCN612PeruPérou (le)PEPER604Philippines (the)Philippines (les)PHPHL608PalauPalaos (les)PWPLW585Papua New GuineaPapouasie-Nouvelle-Guinée (la)PGPNG598PolandPologne (la)PLPOL616Puerto RicoPorto RicoPRPRI630Korea (the Democratic People's Republic of)Corée (la République populaire démocratique de)KPPRK408PortugalPortugal (le)PTPRT620ParaguayParaguay (le)PYPRY600Palestine, State ofPalestine, État dePSPSE275French PolynesiaPolynésie française (la)PFPYF258QatarQatar (le)QAQAT634RéunionRéunion (La)REREU638RomaniaRoumanie (la)ROROU642Russian Federation (the)Russie (la Fédération de)RURUS643RwandaRwanda (le)RWRWA646Saudi ArabiaArabie saoudite (l')SASAU682Sudan (the)Soudan (le)SDSDN729SenegalSénégal (le)SNSEN686SingaporeSingapourSGSGP702South Georgia and the South Sandwich IslandsGéorgie du Sud-et-les Îles Sandwich du Sud (la)GSSGS239Saint Helena, Ascension and Tristan da CunhaSainte-Hélène, Ascension et Tristan da CunhaSHSHN654Svalbard and Jan MayenSvalbard et l'Île Jan Mayen (le)SJSJM744Solomon IslandsSalomon (les Îles)SBSLB090Sierra LeoneSierra Leone (la)SLSLE694El SalvadorEl SalvadorSVSLV222San MarinoSaint-MarinSMSMR674SomaliaSomalie (la)SOSOM706Saint Pierre and MiquelonSaint-Pierre-et-MiquelonPMSPM666SerbiaSerbie (la)RSSRB688South SudanSoudan du Sud (le)SSSSD728Sao Tome and PrincipeSao Tomé-et-PrincipeSTSTP678SurinameSuriname (le)SRSUR740SlovakiaSlovaquie (la)SKSVK703SloveniaSlovénie (la)SISVN705SwedenSuède (la)SESWE752EswatiniEswatini (l')SZSWZ748Sint Maarten (Dutch part)Saint-Martin (partie néerlandaise)SXSXM534SeychellesSeychelles (les)SCSYC690Syrian Arab Republic (the)République arabe syrienne (la)SYSYR760Turks and Caicos Islands (the)Turks-et-Caïcos (les Îles)TCTCA796ChadTchad (le)TDTCD148TogoTogo (le)TGTGO768ThailandThaïlande (la)THTHA764TajikistanTadjikistan (le)TJTJK762TokelauTokelau (les)TKTKL772TurkmenistanTurkménistan (le)TMTKM795Timor-LesteTimor-Leste (le)TLTLS626TongaTonga (les)TOTON776Trinidad and TobagoTrinité-et-Tobago (la)TTTTO780TunisiaTunisie (la)TNTUN788TürkiyeTürkiye (la)TRTUR792TuvaluTuvalu (les)TVTUV798Taiwan (Province of China)Taïwan (Province de Chine)TWTWN158Tanzania, the United Republic ofTanzanie (la République-Unie de)TZTZA834UgandaOuganda (l')UGUGA800UkraineUkraine (l')UAUKR804United States Minor Outlying Islands (the)Îles mineures éloignées des États-Unis (les)UMUMI581UruguayUruguay (l')UYURY858United States of America (the)États-Unis d'Amérique (les)USUSA840UzbekistanOuzbékistan (l')UZUZB860Holy See (the)Saint-Siège (le)VAVAT336Saint Vincent and the GrenadinesSaint-Vincent-et-les GrenadinesVCVCT670Venezuela (Bolivarian Republic of)Venezuela (République bolivarienne du)VEVEN862Virgin Islands (British)Vierges britanniques (les Îles)VGVGB092Virgin Islands (U.S.)Vierges des États-Unis (les Îles)VIVIR850Viet NamViet Nam (le)VNVNM704VanuatuVanuatu (le)VUVUT548Wallis and FutunaWallis-et-FutunaWFWLF876SamoaSamoa (le)WSWSM882YemenYémen (le)YEYEM887South AfricaAfrique du Sud (l')ZAZAF710ZambiaZambie (la)ZMZMB
-Zimbabwe ZWE
-'''
+
 # Provide the maximum precision available
 maxPrecision = {
         'AUS': 2, 
