@@ -3,7 +3,8 @@
 # GADMPostProc.data
 #
 # quentin.desmet@cnrs.fr
-# last update: 2023-05-22
+
+path_to_GADM = __file__[0:-len('/GADMPostProc/data.py')]
 
 # Alpa-3 code to English short name mapping
 # Based on https://www.iso.org/obp/ui/#search/code/
@@ -290,4 +291,4 @@ maxPrecision = {
         }
 
 # Shapefiles' name format
-shp_file = 'gadm36_%s_shp/gadm36_%s_%i.shp' # %(code, code, precision)
+shp_file = lambda code, precision: f'{path_to_GADM}/gadm36_{code}_shp/gadm36_{code}_{precision}.shp'
