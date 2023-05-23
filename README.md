@@ -1,4 +1,5 @@
 # Using GADM shapefiles
+[GADM website] is at version 4.1 as of May, 2023. However, I couldn't make use of the download links for this version and I also noticed that the license is dated from 2022. I therefore used the links I got from version 3.6, which are fine already.
 
 ## What for?
 This can be useful to make country/several countries/province masks,
@@ -28,3 +29,8 @@ Then:
 - `gadm.shp_file('code', 0)` returns the shapefile's path for this country at level 0;
 - `gadm.country_mask('code', da, lon, lat)` returns a xarray.DataArray containing this country mask (see `GADMPostProc/functions.py` for details);
 - `gadm.region_mask(['code1', 'code2', ...], da, lon, lat)`  returns a merge of all masks for the provided list of codes (see `GADMPostProc/functions.py` for details).
+
+## Author
+quentin.desmet@cnrs.fr
+
+[GADM website]: https://gadm.org/data.html
