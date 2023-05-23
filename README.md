@@ -13,7 +13,7 @@ or simply draw related borders.
 **N.B.** The levels' IDs (between 0 and 3 or 4) corresponds to the depth of the territory divisions in the shapefiles, **not** to a difference in border refinement. For instance, the level 0 will only contain the country borders, the level 1 the provinces, etc.
 
 ## Python
-A python package is here to get started with the data. It requires `xarray`, `geopandas`, and `regionmask`. The package doesn't use it, but during your work, you might also need `shapely.geometry` to deal with `Polygon`. In your python code header, add:
+A python package is here to get started with the data. It requires `xarray`, `geopandas`, and `regionmask`. The package doesn't use it, but during your work, you might also need `shapely.geometry` to deal with `Polygon`. An example is provided with `example.py`. In your python code header, add:
 
 ```python
 import sys
