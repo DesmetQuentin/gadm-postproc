@@ -4,7 +4,10 @@
 #
 # quentin.desmet@cnrs.fr
 
-path_to_GADM = __file__[0:-len('/GADMPostProc/data.py')]
+from pathlib import Path
+
+# Shapefiles' name format
+shp_file = lambda code, precision: f'{Path(__file__).parent.parent}/gadm36_{code}_shp/gadm36_{code}_{precision}.shp'
 
 # Alpa-3 code to English short name mapping
 # Based on https://www.iso.org/obp/ui/#search/code/
@@ -289,6 +292,3 @@ maxPrecision = {
         'TWN': 2, 
         'VNM': 3, 
         }
-
-# Shapefiles' name format
-shp_file = lambda code, precision: f'{path_to_GADM}/gadm36_{code}_shp/gadm36_{code}_{precision}.shp'
