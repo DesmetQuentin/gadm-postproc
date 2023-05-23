@@ -17,7 +17,7 @@ https://biogeo.ucdavis.edu/data/gadm3.6/shp/gadm36_IDN_shp.zip
 https://biogeo.ucdavis.edu/data/gadm3.6/shp/gadm36_PNG_shp.zip
 https://biogeo.ucdavis.edu/data/gadm3.6/shp/gadm36_TLS_shp.zip
 https://biogeo.ucdavis.edu/data/gadm3.6/shp/gadm36_AUS_shp.zip
-https://biogeo.ucdavis.edu/data/gadm3.6/shp/gadm36_COK_shp.zip
+https://biogeo.ucdavis.edu/data/gadm3.6/shp/gadm36_CCK_shp.zip
 https://biogeo.ucdavis.edu/data/gadm3.6/shp/gadm36_CXR_shp.zip
 https://biogeo.ucdavis.edu/data/gadm3.6/shp/gadm36_PLW_shp.zip
 https://biogeo.ucdavis.edu/data/gadm3.6/shp/gadm36_LKA_shp.zip
