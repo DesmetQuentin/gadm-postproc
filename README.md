@@ -31,6 +31,6 @@ Then:
 - `gadm.region_mask(['code1', 'code2', ...], da, lon, lat)`  returns a merge of all masks for the provided list of codes (see `GADMPostProc/functions.py` for details).
 
 ## Author
-quentin.desmet@cnrs.fr
+Quentin Desmet: quentin.desmet@cnrs.fr
 
 [GADM website]: https://gadm.org/data.html
