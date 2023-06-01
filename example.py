@@ -1,10 +1,13 @@
-#!/bin/usr/python
+#!/usr/bin/env python
 
-# example
-#
-# quentin.desmet@cnrs.fr
-#
-# Prerequisite: having downloaded SEA data by running `bash download_SEA.sh`
+"""
+example.py
+
+Prerequisite: having downloaded SEA data by running `bash download_SEA.sh`
+
+author: Quentin Desmet
+contact: quentin.desmet@univ-tlse3.fr
+"""
 
 import numpy as np
 import xarray as xr

@@ -1,8 +1,11 @@
-#!/bin/usr/python3
+#!/usr/bin/env python3
 
-# GADMPostProc.data
-#
-# quentin.desmet@cnrs.fr
+"""
+GADMPostProc.data.py
+
+author: Quentin Desmet
+contact: quentin.desmet@univ-tlse3.fr
+"""
 
 from pathlib import Path
 
@@ -10,8 +13,10 @@ from pathlib import Path
 shp_file = lambda code, precision: f'{Path(__file__).parent.parent}/gadm36_{code}_shp/gadm36_{code}_{precision}.shp'
 
 # Alpa-3 code to English short name mapping
-# Based on https://www.iso.org/obp/ui/#search/code/
-# Accessed on May, the 20th of 2023
+"""
+Based on https://www.iso.org/obp/ui/#search/code/
+Accessed on May, the 20th of 2023
+"""
 code2country = {
         'ABW': 'Aruba',
         'AFG': 'Afghanistan',

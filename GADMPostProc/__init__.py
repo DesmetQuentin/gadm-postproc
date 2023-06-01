@@ -1,8 +1,11 @@
-#!/bin/usr/python3
+#!/usr/bin/env python3
 
-# GADMPostProc.__init__
-#
-# quentin.desmet@cnrs.fr
+"""
+GADMPostProc.__init__
+
+author: Quentin Desmet
+contact: quentin.desmet@univ-tlse3.fr
+"""
 
 from .functions import *
 from .data import *
