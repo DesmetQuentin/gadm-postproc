@@ -7,5 +7,5 @@ author: Quentin Desmet
 contact: quentin.desmet@univ-tlse3.fr
 """
 
-from .functions import *
 from .data import *
+from .functions import *

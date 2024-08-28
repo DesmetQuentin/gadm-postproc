@@ -9,7 +9,8 @@ contact: quentin.desmet@univ-tlse3.fr
 
 import xarray as xr
 
-def country_mask(code, da, lon='longitude', lat='latitude'):
+
+def country_mask(code, da, lon="longitude", lat="latitude"):
     """
     Return a xarray.DataArray containing the mask based on the provided code
     (see data.code2country for country name correspondance) and on the grid
@@ -18,13 +19,19 @@ def country_mask(code, da, lon='longitude', lat='latitude'):
     """
     import geopandas as gpd
     import regionmask
+
     from .data import *
 
-    mask = regionmask.Regions(gpd.read_file(shp_file(code, 0))\
-                .geometry.values).mask(da, lon_name=lon, lat_name=lat) + 1
-    return (mask/mask).round()
+    mask = (
+        regionmask.Regions(gpd.read_file(shp_file(code, 0)).geometry.values).mask(
+            da, lon_name=lon, lat_name=lat
+        )
+        + 1
+    )
+    return (mask / mask).round()
 
-def region_mask(code_list, da, lon='longitude', lat='latitude'):
+
+def region_mask(code_list, da, lon="longitude", lat="latitude"):
     """
     Return a xarray.DataArray containing the mask based on the provided list of codes
     (see data.code2country for country name correspondance) and on the grid
