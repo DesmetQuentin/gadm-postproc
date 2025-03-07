@@ -20,11 +20,11 @@ def country_mask(code, da, lon="longitude", lat="latitude"):
     import geopandas as gpd
     import regionmask
 
-    from .data import *
+    from .data import shp_file
 
     mask = (
         regionmask.Regions(gpd.read_file(shp_file(code, 0)).geometry.values).mask(
-            da, lon_name=lon, lat_name=lat
+            da[lon], da[lat]
         )
         + 1
     )

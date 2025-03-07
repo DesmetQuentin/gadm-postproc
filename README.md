@@ -1,5 +1,4 @@
 # Using GADM shapefiles
-[GADM website] is at version 4.1 as of May, 2023. However, I couldn't make use of the download links for this version and I also noticed that the license is dated from 2022. I therefore used the links I got from version 3.6, which are fine already.
 
 ## What for?
 This can be useful to make country/several countries/province masks,
