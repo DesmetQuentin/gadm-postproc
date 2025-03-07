@@ -1,6 +1,10 @@
 #!/bin/bash
 
-wget -i url_SEA.txt
+while IFS= read -r url; do
+    # Download the URL using wget
+    wget "$url"
+done < "url_SEA.txt"
+
 for file in *.zip; do
     folder=${file%.zip}
     mkdir $folder

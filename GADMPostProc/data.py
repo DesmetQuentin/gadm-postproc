@@ -11,7 +11,7 @@ from pathlib import Path
 
 # Shapefiles' name format
 shp_file = (
-    lambda code, precision: f"{Path(__file__).parent.parent}/gadm36_{code}_shp/gadm36_{code}_{precision}.shp"
+    lambda code, precision: f"{Path(__file__).parent.parent}/gadm41_{code}_shp/gadm41_{code}_{precision}.shp"
 )
 
 # Alpa-3 code to English short name mapping
@@ -298,4 +298,9 @@ maxPrecision = {
     "TLS": 3,
     "TWN": 2,
     "VNM": 3,
+    "FSM": 2,
+    "JPN": 2,
+    "MNP": 1,
+    "GUM": 1,
+    "MCO": 0,
 }
